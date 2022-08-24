@@ -1,0 +1,558 @@
+/*-------------------------------------------
+全体
+-------------------------------------------*/
+body {
+    background: #050507;
+    font-family: 'Source Sans Pro', sans-serif;
+    color: #fff;
+}
+
+h1 {
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    text-decoration: none;
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+li {
+    margin: 0;
+    padding: 0;
+}
+
+img {
+    width: 100%;
+}
+
+.continer {
+    /* padding: 0 25px; */
+}
+/*-------------------------------------------
+ヘッダー
+-------------------------------------------*/
+/*
+「position: fixed;」でヘッダーを固定し、「z-index: 10;」で前面に表示
+※他のコンテンツでpositionをrelative、absolute、fixedのいずれかに
+設定している場合は、z-indexの数値が大きい方が前面に表示される
+*/
+#header {
+    height: 60px;
+    display: flex;
+    padding-bottom: 8px;
+    align-items: center;
+    justify-content: space-between;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 10
+}
+
+header h1 img {
+    width: 140px;
+    margin-top: 30px;
+    padding-left: 25px;
+}
+
+/*
+ハンバーガーメニュー
+メニューが閉じている時は、「left: -300px;」で画面左に隠し、
+「opacity: 0;」で非表示にしている
+*/
+#navi {
+    position: fixed;
+    top: 0;
+    top: -100px;
+    width: 100%;
+    color: #fff;
+    padding-top: 60px;
+    padding-left: 30px;
+    padding-bottom: 45px;
+    transition: all 0.5s;
+    z-index: 20;
+    opacity: 0;
+}
+
+#navi a {
+    color: #fff;
+    font-size: 15px;
+}
+
+#navi .link {
+    width: 250px;
+    padding-top: 20px;
+    margin-bottom: 14px;
+}
+
+#navi .navi-menu .link {
+    margin: 0 auto;
+    text-align: center;
+}
+
+#navi .navi-menu .link a {
+    font-size: 13px;
+}
+
+/*
+ハンバーガーメニュー
+メニューが開いている時は、「left: 0;」「opacity: 1;」で
+画面左に表示する
+*/
+.open #navi {
+    top: 0;
+    opacity: 1;
+    background: #050507;
+}
+
+.toggle_btn {
+    width: 30px;
+    height: 30px;
+    margin-top: 30px;
+    position: relative;
+    transition: all 0.5s;
+    cursor: pointer;
+    z-index: 20;
+    padding-right: 25px;
+}
+
+/*
+ハンバーガーメニューの線の設定（メニューが閉じている時）
+*/
+
+.toggle_btn span {
+    display: block;
+    position: absolute;
+    width: 30px;
+    height: 2px;
+    background-color: #fff;
+    border-radius: 4px;
+    transition: all 0.5s;
+}
+
+/*
+1本目の線の位置を設定
+*/
+
+.toggle_btn span:nth-child(1) {
+    top: 10px;
+}
+
+/*
+2本目の線の位置を設定
+*/
+
+.toggle_btn span:nth-child(2) {
+    bottom: 10px;
+}
+
+.toggle_btn span:nth-child(3) {
+    bottom: 25px;
+}
+
+/*
+ハンバーガーメニューの線の設定（メニューが開いている時）
+線の色を白に変更
+*/
+
+.open .toggle_btn span {
+    background-color: #fff;
+}
+/*
+1本目の線を-45度回転
+*/
+
+.open .toggle_btn span:nth-child(3) {
+    -webkit-transform: translateY(7px) rotate(-405deg);
+    transform: translateY(7px) rotate(-405deg);
+}
+
+/*
+2本目の線を45度回転
+*/
+
+.open .toggle_btn span:nth-child(2) {
+    -webkit-transform: translateY(-8px) rotate(405deg);
+    transform: translateY(-8px) rotate(405deg);
+}
+
+.open .toggle_btn span:nth-child(1) {
+    display: none;
+}
+
+#mask {
+    display: none;
+    transition: all 0.5s;
+}
+
+/*
+メニューを開いている時は、全体を黒背景にする
+*/
+
+.open #mask {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 10;
+    cursor: pointer;
+}
+
+/*-------------------------------------------
+main
+-------------------------------------------*/
+#mainvsual .main_image {
+    display: flex;
+    justify-content: center;
+    overflow-x: hidden;
+}
+#mainvsual .main_image img {
+    width: 100%;
+    height: 100vh;
+    flex-shrink: 0;
+    object-fit: cover;
+}
+#mainvsual .detail {
+    text-align: center;
+}
+#mainvsual .detail .taitle {
+    font-size: 35px;
+    margin-bottom: 70px;
+}
+#mainvsual .detail .sub_taitle {
+    font-size: 23px;
+    border-bottom: 1px solid #fff;
+    width: 190px;
+    margin: 0 auto;
+}
+#mainvsual .detail p {
+    font-size: 13px;
+    margin: 45px 0 30px 0;
+}
+#mainvsual .detail .sub_taitle2 {
+    font-size: 23px;
+    margin-bottom: 35px;
+}
+
+/*-------------------------------
+gallery
+--------------------------------*/
+#gallery {
+    text-align: center;
+}
+#gallery .taitle {
+    font-size: 25px;
+    border-bottom: 1px solid #fff;
+    width: 125px;
+    margin: 0 auto;
+    margin-top: 95px;
+    margin-bottom: 45px;
+}
+#gallery img {
+    width: 740px;
+    margin-bottom: 30px;
+}
+
+/*-------------------------------
+access
+--------------------------------*/
+#access {
+    position: relative;
+    z-index: 20;
+}
+#access .access-position {
+    text-align: center;
+}
+#access .access-position .taitle {
+    font-size: 25px;
+    border-bottom: 1px solid #fff;
+    width: 125px;
+    margin: 0 auto;
+    margin-top: 95px;
+    margin-bottom: 45px;
+}
+#access .access-position .sub_taitle {
+    font-size: 23px;
+}
+#access .access-position p {
+    font-size: 14px;
+}
+#access .access-position p + p {
+    margin-top: 25px;
+    margin-bottom: 30px;
+}
+#access .access-position a {
+    display: block;
+    border: 1px solid #fff;
+    width: 250px;
+    margin: 0 auto;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    color: #fff;
+}
+
+/*-------------------------------
+ contact
+--------------------------------*/
+#contact {
+    text-align: center;
+    margin-top: 290px;
+}
+#contact .taitle {
+    font-size: 25px;
+    border-bottom: 1px solid #fff;
+    width: 125px;
+    margin: 0 auto;
+    margin-top: 95px;
+    margin-bottom: 45px;
+}
+#contact .btn {
+    display: block;
+    width: 740px;
+    border: 1px solid #7D7D7D;
+    margin: 0 auto;
+    padding-top: 35px;
+    padding-bottom: 35px;
+    color: #fff;
+}
+#contact a + a {
+    margin-top: 20px;
+}
+#contact a:hover {
+    opacity: 0.8;
+}
+
+/*-------------------------------
+ footer
+--------------------------------*/
+#footer {
+    margin-top: 200px;
+}
+#footer .boder {
+    border: 1px solid #fff;
+    margin-bottom: 65px;
+}
+#footer .footer-posistion {
+    padding-left: 25px;
+}
+#footer p {
+    font-size: 8px;
+}
+#footer ul {
+    display: flex;
+    margin-top: 25px;
+}
+#footer li {
+    margin-right: 15px;
+}
+#footer li a {
+    font-size: 10px;
+    color: #fff;
+}
+
+/* ------------------------
+ acooesの背景画像
+------------------------ */
+.bg {
+    background: url(img/bg.jpeg) center center repeat !important;
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: none;
+    z-index: 10;
+}
+
+/* ------------------------
+ animate
+------------------------ */
+.animate {
+    opacity: 0;
+    transition: opacity 1s, transform 1s;
+}
+
+.animate.slide-from-buttom {
+    transform: translateY(100px);
+}
+
+.animate.appear {
+    opacity: 1;
+    transform: none;
+}
+
+.animate2 {
+    opacity: 0;
+    transition: opacity 3s, transform 3s;
+}
+
+.animate.slide-from-buttom2 {
+    transform: translateY(150px);
+}
+
+.animate2.appear2 {
+    opacity: 1;
+    transform: none;
+}
+
+/*--------------------------------------------------------------
+レスポンシブ対応
+--------------------------------------------------------------*/
+@media (min-width: 900px) {
+    /*-------------------------------
+        mainvsual
+    --------------------------------*/
+    #mainvsual .detail .taitle {
+        font-size: 70px;
+        margin-top: 127px;
+        margin-bottom: 143px;
+    }
+    #mainvsual .detail .sub_taitle {
+        font-size: 48px;
+        border-bottom: 1px solid #fff;
+        width: 366px;
+        margin: 0 auto;
+    }
+    #mainvsual .detail p {
+        font-size: 17px;
+        margin: 45px 0 30px 0;
+    }
+    #mainvsual .detail .sub_taitle2 {
+        font-size: 30px;
+        margin-bottom: 35px;
+    }
+
+    /*-------------------------------
+        gallery
+    --------------------------------*/
+    #gallery {
+        display: flex;
+        flex-direction: column;
+    }
+    #gallery .taitle {
+        font-size: 45px;
+        border-bottom: 1px solid #fff;
+        width: 227px;
+        margin: 0 auto;
+        margin-top: 160px;
+    }
+    #gallery img {
+        margin: 0 auto;
+    }
+    #gallery .p1 {
+        width: 357px;
+        height: 450px;
+        padding-right: 387px;
+        margin-top: 60px;
+    }
+    #gallery .p2 {
+        width: 357px;
+        height: 238px;
+        padding-left: 387px;
+        margin-top: 60px;
+    }
+    #gallery .p3 {
+        width: 357px;
+        height: 355px;
+        padding-right: 387px;
+        margin-top: 60px;
+    }
+    #gallery .p4 {
+        width: 357px;
+        height: 535px;
+        padding-left: 387px;
+        margin-top: 60px;
+    }
+    #gallery .p5 {
+        width: 357px;
+        height: 445px;
+        padding-right: 387px;
+        margin-top: 60px;
+    }
+    #gallery .p6 {
+        width: 357px;
+        height: 237px;
+        padding-left: 387px;
+        margin-top: 60px;
+        margin-bottom: 445px;
+    }
+
+    /*-------------------------------
+        access
+    --------------------------------*/
+    #access .access-position .taitle {
+        font-size: 45px;
+        border-bottom: 1px solid #fff;
+        width: 227px;
+        margin: 0 auto;
+        margin-bottom: 55px;
+    }
+
+    /*-------------------------------
+        contact
+    --------------------------------*/
+    #contact .taitle {
+        font-size: 45px;
+        border-bottom: 1px solid #fff;
+        width: 248px;
+        margin: 0 auto;
+        margin-top: 500px;
+        margin-bottom: 45px;
+    }
+    #contact .btn {
+        width: 400px;
+        margin-bottom: 20px;
+        position: relative;
+        transition: 0.3s;
+    }
+    /* ボタン矢印 */
+    #contact .btn::before,
+    #contact .btn::after {
+    content: "";
+    position: absolute;
+    right: -40px;
+    height: 1px;
+    background-color: #fff;
+    transition: 0.3s;
+    }
+    /* 矢印の直線部分 */
+    #contact .btn::before {
+    width: 120px;
+    top: 48px;
+    }
+    /* 矢印の先端部分 「rotate(25deg)」で角度をつける */
+    #contact .btn::after {
+    width: 15px;
+    top: 45px;
+    transform: rotate(25deg);
+    }
+    #contact .btn:hover {
+    opacity: 0.7;
+    }
+    #contact .btn:hover::before,
+    #contact .btn:hover::after {
+    right: -50px;
+    }
+
+    /*-------------------------------
+        footer
+    --------------------------------*/
+    #footer {
+        margin-bottom: 80px;
+    }
+    #footer .footer-posistion {
+        display: flex;
+        justify-content: space-between;
+    }
+    #footer .footer-posistion .box {
+        margin-top: 120px;
+    }
+}
